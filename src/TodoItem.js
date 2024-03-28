@@ -9,10 +9,10 @@ const TodoItem = (props) => {
       items-center relative"
     >
       <span 
-        className={
+        className= {
           `${props.complete && "text-green-500"} 
-          font-bold text-2xl cursor-pointer`
-        }
+          font-bold text-2xl cursor-pointer`}
+          onClick={props.onComplete}
       >V</span>
       <p 
         className={

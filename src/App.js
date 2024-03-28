@@ -23,6 +23,15 @@ function App() {
     (todo) => todo.text.toLocaleLowerCase().includes(searchValue.toLocaleLowerCase()) 
   )
 
+  const completeTodo = (text) => {
+    const newTodos = [...todos]
+    const todoIndex = newTodos.findIndex(
+      (todo) => todo.text == text
+    )
+    newTodos[todoIndex].complete = true
+    setTodos(newTodos)
+  }
+
   return (
     <>
       <div 
@@ -39,6 +48,7 @@ function App() {
             key={todo.text} 
             text={todo.text}
             complete={todo.complete}
+            onComplete={() => completeTodo(todo.text)}
           />
           ))}
         </TodoList>
