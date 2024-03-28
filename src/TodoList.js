@@ -2,7 +2,7 @@
 
 const TodoList = ({ children }) => {
   return (
-    <ul>
+    <ul className="container flex flex-col gap-5 items-center py-5">
       {children}
     </ul>
   )
