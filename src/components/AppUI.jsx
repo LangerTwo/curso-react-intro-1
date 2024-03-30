@@ -5,6 +5,8 @@ import TodoItem from './TodoItem';
 import TodoButton from './TodoButton';
 
 const AppUI = ({
+    loading,
+    error,
     completeTodo,
     totalTodos,
     searchValue,
@@ -23,15 +25,18 @@ const AppUI = ({
         setSearchValue={setSearchValue}
         />
         <TodoList>
-        {searchTodos.map(todo => (
-            <TodoItem 
-            key={todo.text} 
-            text={todo.text}
-            complete={todo.complete}
-            onComplete={() => completeTodo(todo.text)}
-            onDelete={() => deleteTodo(todo.text)}
-        />
-        ))}
+          {loading && <p>Estamos Cargando...</p>}
+          {error && <p>Hubo un Problema!!!</p>}
+          {(!loading && searchTodos.length === 0) && <p>¡Crea tu Primer TODO!</p>}
+          {searchTodos.map(todo => (
+              <TodoItem 
+              key={todo.text} 
+              text={todo.text}
+              complete={todo.complete}
+              onComplete={() => completeTodo(todo.text)}
+              onDelete={() => deleteTodo(todo.text)}
+          />
+          ))}
         </TodoList>
         <TodoButton />
       </div>
