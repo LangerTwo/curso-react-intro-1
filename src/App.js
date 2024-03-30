@@ -1,19 +1,23 @@
 import { useState } from 'react'
-import TodoCounter from './TodoCounter';
-import TodoSearch from './TodoSearch';
-import TodoList from './TodoList';
-import TodoItem from './TodoItem';
-import TodoButton from './TodoButton';
+import TodoCounter from './components/TodoCounter';
+import TodoSearch from './components/TodoSearch';
+import TodoList from './components/TodoList';
+import TodoItem from './components/TodoItem';
+import TodoButton from './components/TodoButton';
+import useLocalStorage from './hooks/localStorage';
 
-const defaultTodos = [
-  { text: 'Cortar Cebolla', complete: true},
-  { text: 'Tomar el Curso de Intro a Reac.js', complete: false},
-  { text: 'Llorar con la Llorona', complete: false},
-  { text: 'LALALALALA', complete: false},
-]
+// const defaultTodos = [
+//   { text: 'Cortar Cebolla', complete: true},
+//   { text: 'Tomar el Curso de Intro a Reac.js', complete: false},
+//   { text: 'Llorar con la Llorona', complete: false},
+//   { text: 'LALALALALA', complete: false},
+// ]
+
+// localStorage.setItem('TODOS_V1', JSON.stringify(defaultTodos));
+// localStorage.removeItem('TODOS_V1');
 
 function App() {
-  const [ todos, setTodos ] = useState(defaultTodos);
+  const [ todos, saveTodos ] = useLocalStorage('TODOS_V1', []);
   const [ searchValue, setSearchValue ] = useState('');
 
   const completeTodos = todos.filter( todo => !!todo.complete).length;
@@ -29,7 +33,7 @@ function App() {
       (todo) => todo.text === text
     )
     newTodos[todoIndex].complete = true
-    setTodos(newTodos)
+    saveTodos(newTodos)
   }
 
   const deleteTodo = (text) => {
@@ -38,7 +42,7 @@ function App() {
       (todo) => todo.text === text
     )
     newTodos.splice(todoIndex, 1)
-    setTodos(newTodos)
+    saveTodos(newTodos)
   }
 
   return (

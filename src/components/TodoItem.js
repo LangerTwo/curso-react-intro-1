@@ -20,7 +20,7 @@ const TodoItem = (props) => {
            ${props.complete && "line-through decoration-black"
         }`}>{props.text}</p>
         <BsXCircleFill 
-          className="text-red-500 text-2xl hover:text-3xl absolute -top-3 -right-3 cursor-pointer"
+          className="text-gray-500 hover:text-red-500 text-2xl hover:text-3xl absolute -top-3 -right-3 cursor-pointer"
           onClick={props.onDelete}
         />
     </li>
