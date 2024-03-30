@@ -26,6 +26,7 @@ const TodoItem = (props) => {
         font-bold text-3xl 
         hover:text-4xl cursor-pointer 
         absolute -top-5 right-0"
+        onClick={props.onDelete}
       >X</span>
     </li>
   )
