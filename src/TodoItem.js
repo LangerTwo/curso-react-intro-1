@@ -1,4 +1,5 @@
 // import React from 'react'
+import { BsXCircleFill, BsCheckCircleFill } from "react-icons/bs";
 
 const TodoItem = (props) => {
   return (
@@ -8,26 +9,20 @@ const TodoItem = (props) => {
       text-wrap rounded-sm shadow-md 
       items-center relative"
     >
-      <span 
-        className= {
-          `${props.complete && "text-green-500"} 
-          font-bold text-2xl cursor-pointer`}
-          onClick={props.onComplete}
-      >V</span>
+      <BsCheckCircleFill 
+        className={`${props.complete && "text-green-500"} text-2xl cursor-pointer`}
+        onClick={props.onComplete}
+      />
       <p 
         className={
           `text-xl text-left
            text-gray-500 
            ${props.complete && "line-through decoration-black"
         }`}>{props.text}</p>
-      <span 
-        className="text-black 
-        hover:text-red-500 
-        font-bold text-3xl 
-        hover:text-4xl cursor-pointer 
-        absolute -top-5 right-0"
-        onClick={props.onDelete}
-      >X</span>
+        <BsXCircleFill 
+          className="text-red-500 text-2xl hover:text-3xl absolute -top-3 -right-3 cursor-pointer"
+          onClick={props.onDelete}
+        />
     </li>
   )
 }
