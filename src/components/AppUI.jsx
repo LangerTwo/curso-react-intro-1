@@ -4,6 +4,10 @@ import TodoList from './TodoList';
 import TodoItem from './TodoItem';
 import TodoButton from './TodoButton';
 
+import TodoLoading from './TodoLoading';
+import TodoError from './TodoError';
+import EMptyTodo from './EMptyTodo';
+
 const AppUI = ({
     loading,
     error,
@@ -24,9 +28,9 @@ const AppUI = ({
         setSearchValue={setSearchValue}
         />
         <TodoList>
-          {loading && <p>Estamos Cargando...</p>}
-          {error && <p>Hubo un Problema!!!</p>}
-          {(!loading && searchTodos.length === 0) && <p>¡Crea tu Primer TODO!</p>}
+          {loading && <TodoLoading />}
+          {error && <TodoError />}
+          {(!loading && searchTodos.length === 0) && <EMptyTodo />}
           {searchTodos.map(todo => (
               <TodoItem 
                 key={todo.text} 
