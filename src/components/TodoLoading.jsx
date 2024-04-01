@@ -4,8 +4,8 @@ import { SpinnerDotted } from 'spinners-react';
 const TodoLoading = () => {
   return (
     <div>
-      <h1 className='my-3'>Cargando...</h1>
       <SpinnerDotted size={100} color='#60a5fa'/>
+      <h1 className='my-3 text-3xl text-indigo-500'>Cargando...</h1>
     </div>
   )
 }
