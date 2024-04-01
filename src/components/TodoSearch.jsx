@@ -1,6 +1,11 @@
-// import { useState } from 'react'
+import { useContext } from "react"
+import { TodoContext } from "../context/TodoContext"
 
-const TodoSearch = ({searchValue, setSearchValue}) => {
+const TodoSearch = () => {
+  const {
+    searchValue,
+    setSearchValue
+  } = useContext(TodoContext)
   return (
     <input 
       className="border-2 p-2 w-4/5 placeholdergray-400 rounded-md shadow-md"
