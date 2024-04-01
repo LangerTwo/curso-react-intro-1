@@ -2,9 +2,9 @@ import React from 'react'
 
 const TodoError = () => {
   return (
-    <div>
+    <h1>
       Erroooooooor!!!!!
-    </div>
+    </h1>
   )
 }
 
