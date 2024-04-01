@@ -8,8 +8,11 @@ import TodoLoading from './TodoLoading';
 import TodoError from './TodoError';
 import EMptyTodo from './EMptyTodo';
 
+import ModalTodo from './ModalTodo';
+
 import { TodoContext } from '../context/TodoContext';
 import { useContext } from 'react';
+
 
 const AppUI = () => {
   const { 
@@ -17,13 +20,16 @@ const AppUI = () => {
     error,
     completeTodo,
     searchTodos,
-    deleteTodo, 
+    deleteTodo,
+    openModal,
+    setOpenModal
   } = useContext(TodoContext)
   return (
       <div 
         className='w-auto lg:w-2/5 md:w-3/5 container mx-auto mt-10 shadow-sm rounded-lg text-center bg-white relative'>
         <TodoCounter />
         <TodoSearch />
+
         <TodoList>
             {loading && <TodoLoading />}
             {error && <TodoError />}
@@ -38,7 +44,14 @@ const AppUI = () => {
                 />
             ))}
         </TodoList>
+        
         <TodoButton />
+
+        {openModal && (
+          <ModalTodo>
+            La funcionalidad de agregar TODO
+          </ModalTodo>
+        )}
       </div>
   )
 }
