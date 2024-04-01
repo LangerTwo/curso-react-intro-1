@@ -16,7 +16,6 @@ const AppUI = ({
     deleteTodo,
 }) => {
   return (
-    <>
       <div 
         className='w-auto lg:w-2/5 md:w-3/5 container mx-auto mt-10 shadow-sm rounded-lg text-center bg-white relative'>
         <TodoCounter  complete={completeTodos} total={totalTodos}/>
@@ -30,17 +29,16 @@ const AppUI = ({
           {(!loading && searchTodos.length === 0) && <p>¡Crea tu Primer TODO!</p>}
           {searchTodos.map(todo => (
               <TodoItem 
-              key={todo.text} 
-              text={todo.text}
-              complete={todo.complete}
-              onComplete={() => completeTodo(todo.text)}
-              onDelete={() => deleteTodo(todo.text)}
-          />
+                key={todo.text} 
+                text={todo.text}
+                complete={todo.complete}
+                onComplete={() => completeTodo(todo.text)}
+                onDelete={() => deleteTodo(todo.text)}
+              />
           ))}
         </TodoList>
         <TodoButton />
       </div>
-    </>
   )
 }
 
