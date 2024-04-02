@@ -9,6 +9,7 @@ import TodoError from './TodoError';
 import EMptyTodo from './EMptyTodo';
 
 import ModalTodo from './ModalTodo';
+import TodoForm from './TodoForm';
 
 import { TodoContext } from '../context/TodoContext';
 import { useContext } from 'react';
@@ -22,7 +23,7 @@ const AppUI = () => {
     searchTodos,
     deleteTodo,
     openModal,
-    setOpenModal
+    // setOpenModal
   } = useContext(TodoContext)
   return (
       <div 
@@ -49,7 +50,7 @@ const AppUI = () => {
 
         {openModal && (
           <ModalTodo>
-            La funcionalidad de agregar TODO
+            <TodoForm />
           </ModalTodo>
         )}
       </div>
